@@ -23,6 +23,9 @@ module Webhookr
           end
         end
 
+        def authenticated?(request)
+          request.nil? || request.headers['Authentication'] != "abc"
+        end
       end
     end
   end

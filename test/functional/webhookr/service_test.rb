@@ -25,6 +25,15 @@ module Webhookr
       }
     end
 
+    test "should raise a Webhookr::NotAuthenticatedError for not authenticated request" do
+      assert_raise(Webhookr::NotAuthenticatedError) {
+        Webhookr::Service.new(stub.service_name,
+                              :payload => stub.payload,
+                              :request => OpenStruct.new(:headers => {'Authentication' => 'abc'})
+                             ).process!
+      }
+    end
+
     test "should raise a Runtime error if there is no callback class configured" do
       Webhookr::ServiceUnderTest::Adapter.config.callback = nil
       assert_raise(RuntimeError) {

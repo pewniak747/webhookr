@@ -7,6 +7,7 @@ module Webhookr
       @raw_payload = options[:payload]
       @request = options[:request]
       available?
+      authenticated?
       validate_security_token(options[:security_token]) if configured_security_token
     end
 
@@ -48,5 +49,8 @@ module Webhookr
 
     alias_method :available?, :service_adapter
 
+    def authenticated?
+      raise Webhookr::NotAuthenticatedError unless service_adapter.authenticated?(@request)
+    end
   end
 end

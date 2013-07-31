@@ -15,6 +15,10 @@ module Webhookr::Services::Adapter::Base
         Webhookr.config[self::SERVICE_NAME] = ActiveSupport::OrderedOptions.new
       end
     end
+
+    def authenticated?(payload, request)
+      true
+    end
   end
 end
 
