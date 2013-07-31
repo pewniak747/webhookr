@@ -5,6 +5,7 @@ module Webhookr
     def initialize(service_name, options = {})
       @service_name = (service_name || "").downcase
       @raw_payload = options[:payload]
+      @request = options[:request]
       available?
       validate_security_token(options[:security_token]) if configured_security_token
     end

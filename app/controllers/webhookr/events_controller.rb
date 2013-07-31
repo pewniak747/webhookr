@@ -24,7 +24,7 @@ module Webhookr
         request.body.rewind
 
         @service = Webhookr::Service.new(
-          params[:service_id], :payload => request.body.read, :security_token => params[:security_token]
+          params[:service_id], :payload => request.body.read, :security_token => params[:security_token], :request => request
         )
       rescue NameError => e
         raise ActionController::RoutingError.new("No service '#{params[:service_id]}' is available.")
