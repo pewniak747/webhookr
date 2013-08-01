@@ -16,7 +16,7 @@ module Webhookr::Services::Adapter::Base
       end
     end
 
-    def authenticated?(payload, request)
+    def authenticated?(request)
       true
     end
   end
