@@ -99,6 +99,13 @@ rake webhookr:services
 
 ## <a name="security"></a>Webhookr Security
 
+### Important security note
+
+A timing attack vulnerability was discovered in versions of webhookr prior to 0.2.0.
+It is recommended that you upgrade to as soon as possible to at least version 0.2.0.
+
+Please see revision ccafc8248559a09e090cf824c8454c9824555a06 for details.
+
 ### General security issues with webhooks
 
 A webhook is by design, a http post to your application that results in code execution.
@@ -130,7 +137,7 @@ If you are sending sensitive data via webhooks, it is recommended you use HTTPS.
 
 ## <a name="works_with"></a>Works with:
 
-webhookr works with Rails 4.0 and 3.1, and has been tested on the following Ruby
+webhookr works with Rails 4.0 and 3.1+, and has been tested on the following Ruby
 implementations:
 
 * JRuby 1.7.4
@@ -165,5 +172,5 @@ webhookr is released under the [MIT license](http://www.opensource.org/licenses/
 ## Author
 
 * [Gerry Power](https://github.com/gerrypower)
+* [J Smith](https://github.com/dark-panda)
 
-## <a name="Version History"></a>Version History
